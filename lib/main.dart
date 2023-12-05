@@ -1,6 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
-void main() {
+import 'firebase_options.dart';
+import 'firebase_options_dev.dart';
+import 'firebase_options_stage.dart';
+import 'flavors.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final FirebaseOptions defaultFirebaseOptions;
+  print('Current flavour by dart-define: ${F.flavour}');
+  switch (F.flavour) {
+    case 'dev':
+      defaultFirebaseOptions = FirebaseOptionsDEV.currentPlatform;
+      break;
+    case 'stage':
+      defaultFirebaseOptions = FirebaseOptionsSTAGE.currentPlatform;
+      break;
+    default:
+      defaultFirebaseOptions = FirebaseOptionsPROD.currentPlatform;
+  }
+  await Firebase.initializeApp(
+    options: defaultFirebaseOptions,
+  );
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(const MyApp());
 }
 
