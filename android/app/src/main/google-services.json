@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "246592880290",
+    "project_id": "structure-test-29057",
+    "storage_bucket": "structure-test-29057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246592880290:android:953240d95e4dc1ab6721fb",
+        "android_client_info": {
+          "package_name": "com.appub.structure.structure_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDazLz-Y9U8cbvTch5RcK5UyVpuxkRvFOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
